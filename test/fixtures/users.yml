@@ -1,0 +1,61 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+yyamada:
+  id: 1
+  username: yyamada
+  password: 2cf00a11121ad260ed32b290f9aefa01279bd5a2
+  salt: 5f90a188468f64998c5a
+  email: yyamada@wings.msn.to
+  dm: true
+  roles: admin,manager
+  reviews_count: 2
+
+isatou:
+  id: 2
+  username: isatou
+  password: 9be7f45387af4f7bbe720d16a6f334503b5c4f81
+  salt: 5f90a188468f64998c5b
+  email: isatou@wings.msn.to
+  dm: false
+  roles: admin
+  reviews_count: 2
+
+hsuzuki:
+  id: 3
+  username: hsuzuki
+  password: 6cc09597819748465c6a2603a6f7a52d51eb01ef
+  salt: 5f90a188468f64998c5c
+  email: hsuzuki@wings.msn.to
+  dm: true
+  roles: manager
+  reviews_count: 2
+
+tyamamoto:
+  id: 4
+  username: tyamamoto
+  password: 06780c9b144eaf8dc0c8c6ded18afb032cac9b5e
+  salt: 5f90a188468f64998c5d
+  email: tyamamoto@wings.msn.to
+  dm: false
+  roles: member
+  reviews_count: 1
+
+shayashi:
+  id: 5
+  username: shayashi
+  password: 088aac29e5ea1bfd8879eaf3b621bdd3d31f072e
+  salt: 5f90a188468f64998c5e
+  email: shayashi@wings.msn.to
+  dm: true
+  roles: member
+  reviews_count: 2
+
+nkakeya:
+  id: 6
+  username: nkakeya
+  password: c599f512c00d8bbb9fd883f28b9555213516f88e
+  salt: 5f90a188468f64998c5f
+  email: nami-piano@nifty.com
+  dm: true
+  roles: manager,member
+  reviews_count: 0

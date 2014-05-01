@@ -1,17 +1,91 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  isbn: MyString
-  title: MyString
-  price: 1
-  publish: MyString
-  published: 2014-05-01
+modernjava:
+  id: 1
+  isbn: 978-4-7741-5878-5
+  title: AndroidエンジニアのためのモダンJava
+  price: 3360
+  publish: 技術評論社
+  published: 2013-08-20
   cd: false
 
-two:
-  isbn: MyString
-  title: MyString
-  price: 1
-  publish: MyString
-  published: 2014-05-01
+jslib:
+  id: 2
+  isbn: 978-4-7741-5611-8
+  title: JavaScriptライブラリ実践活用
+  price: 2709
+  publish: 技術評論社
+  published: 2013-03-19
+  cd: false
+
+rails:
+  id: 3
+  isbn: 978-4-7741-4980-6
+  title: Ruby on Rails 4ポケットリファレンス
+  price: 2919
+  publish: 技術評論社
+  published: 2012-01-26
+  cd: true
+
+sql:
+  id: 4
+  isbn: 978-4-8222-9621-6
+  title: 書き込み式SQLのドリル
+  price: 2310
+  publish: 日経BP社
+  published: 2013-04-22
+  cd: true
+
+android:
+  id: 5
+  isbn: 978-4-7980-3585-7
+  title: はじめてのAndroidアプリ開発
+  price: 3150
+  publish: 秀和システム
+  published: 2012-11-22
+  cd: false
+
+php:
+  id: 6
+  isbn: 978-4-7981-2631-9
+  title: 10日でおぼえるPHP入門教室
+  price: 3360
+  publish: 翔泳社
+  published: 2012-09-13
+  cd: true
+
+html:
+  id: 7
+  isbn: 987-4-8222-9612-4
+  title: アプリを作ろう！HTML5入門
+  price: 1995
+  publish: 日経BP社
+  published: 2012-06-07
+  cd: false
+
+refhtml:
+  id: 8
+  isbn: 978-4-7741-5067-3
+  title: HTML5 開発ポケットリファレンス
+  price: 2709
+  publish: 翔泳社
+  published: 2012-04-17
+  cd: false
+
+servlet:
+  id: 9
+  isbn: 978-4-7981-3049-1
+  title: 独習Java サーバサイド編
+  price: 3780
+  publish: 翔泳社
+  published: 2013-01-28
+  cd: false
+
+iphone:
+  id: 10
+  isbn: 978-4-88337-774-9
+  title: Flash CSで学ぶ iPhone実践プログラミング
+  price: 2625
+  publish: ソシム
+  published: 2011-08-16
   cd: false
