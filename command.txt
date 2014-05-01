@@ -1,0 +1,139 @@
+■Chap01
+●Rubyのバージョン確認
+> ruby -v
+
+●SQLiteのバージョン確認
+> sqlite3 -version
+
+●Devkitインストール
+> ruby dk.rb init
+> ruby dk.rb install
+
+●Node.jsのバージョン確認
+> node -v
+
+●Railsインストール
+> gem install rails
+
+●Railsバージョン確認
+> rails -v
+
+■Chap02
+●新規のアプリケーションを作成
+> rails new railbook
+
+●HTTP サーバを起動
+> rails server
+
+●コントローラクラスの作成
+> rails generate controller hello
+
+●コントローラクラスの削除
+> rails destroy controller hello
+
+●モデルクラスの作成
+> rails generate model book isbn:string title:string price:integer publish:string published:date cd:boolean
+
+●マイグレーションファイルによるテーブルの作成
+> rake db:migrate
+
+●フィクスチャによるテストデータの準備
+> rake db:fixtures:load FIXTURES=books
+
+●データベースクライアントの起動
+> rails dbconsole
+
+■Chap03
+●前章で作成したデータベースとモデル、その関連ファイルを削除
+> rails destroy model book
+
+●Scaffolding機能によるアプリケーション開発
+> rails generate scaffold book isbn:string title:string price:integer publish:string published:date cd:boolean
+
+●マイグレーションファイルを実行
+> rake db:migrate
+
+●自動生成されたルートを確認する
+> rake routes
+
+●作成済みのファイルを削除する
+> rake db:drop:all
+
+●モデルクラスを作成
+> rails generate migration CreateJoinTableAuthorBook author book
+> rails generate scaffold user username:string password:string salt:string email:string dm:boolean roles:string reviews_count:integer
+> rails generate scaffold author user:references name:string birth:date address:text ctype:string photo:binary 
+> rails generate scaffold review book:references user:references body:text
+> rails generate scaffold fan_comment author_no:integer name:string body:text deleted:boolean
+> rails generate model memo memoable_type:string memoable_id:integer body:string
+
+●マイグレーションファイルを実行
+> rake db:migrate
+
+●フィクスチャでテストデータを生成
+> rake db:fixtures:load
+
+●現在のテーブルレイアウト（schema.rb）でデータベースを再作成
+> rake db:reset
+
+
+■Chap05
+●マイグレーションファイルの実行
+> rake db:migrate
+
+●マイグレーションの実行履歴
+> rake db:migrate:status
+
+●RAILS_ENVオプション
+> rake db:migrate RAILS_ENV=test
+
+●VERBOSEオプション
+> rake db:migrate VERBOSE=false
+
+● スキーマファイルによるデータベースの再構築
+> rake db:schema:load
+
+●データベースを破棄して、最新のスキーマ情報で再構築
+> rake db:reset
+
+●既存のデータベースからスキーマファイルを生成
+> rake db:schema:dump
+
+●.sqlファイルを作成
+> rake db:structure:dump
+
+●シードファイルの実行
+> rake db:seed
+
+●データベースの作成からスキーマの構築、初期データの投入
+> rake db:setup
+
+●フィクスチャファイルの実行
+> rake db:fixtures:load FIXTURES=users,reviews
+
+■Chap08
+●Unitテストの実行
+> rake test:models TEST="test/models/book_test.rb"
+
+●ビューヘルパーのUnitテスト
+> rake test:helpers TEST="test/helpers/view_helper_test.rb"
+
+●Functionalテストの実行
+> rake test:controllers TEST="test/controllers/hello_controller_test.rb"
+
+●Integration テストスクリプトを作成する
+> rails generate integration_test admin_login
+
+●Integrationテストの実行
+> rake test:integration TEST="test/integration/admin_login_test.rb"
+
+■Chap09
+●CoffeeScriptのコンパイル環境を準備
+> npm install -g coffee-script
+
+■Chap10
+●メーラーの生成
+> rails generate mailer NoticeMailer sendmail_confirm
+
+●メーラーの Unit テスト
+> rake test:mailers TEST="test/mailers/notice_mailer_test.rb"
