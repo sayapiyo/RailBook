@@ -31,6 +31,9 @@ ActiveRecord::Schema.define(version: 20140501094049) do
     t.integer "book_id",   null: false
   end
 
+  add_index "authors_books", ["author_id", "book_id"], name: "index_authors_books_on_author_id_and_book_id"
+  add_index "authors_books", ["book_id", "author_id"], name: "index_authors_books_on_book_id_and_author_id"
+
   create_table "books", force: true do |t|
     t.string   "isbn"
     t.string   "title"

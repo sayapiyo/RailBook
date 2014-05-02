@@ -1,0 +1,12 @@
+<%= form_for(@book) do |f| %>
+    <div class="field">
+        <%= f.label :isbn %><br />
+        <%= f.text_field :isbn, size: 25 %>
+    </div>
+
+    <%# 中略 %>
+
+    <div class="actions">
+        <%= f.submit %>
+    </div>
+<% end %>
