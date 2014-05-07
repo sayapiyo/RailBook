@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :members
+
   resources :fan_comments
 
   resources :reviews

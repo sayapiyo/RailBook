@@ -57,4 +57,21 @@ class RecordController < ApplicationController
   #  cnt = Book.new.update(published: '2014-05-07')
   #  render text: "#{cnt}件のデータを更新しました。"
   #end
+  
+  def transact
+    Book.transaction do
+      b1 = Book.new({isbn: '978-4-7741-4223-0',
+                    title: 'Rubyポケットリファレンス',
+                    price: 2000, publish: '技術評論社', published: '2011-01-01'})
+      b1.save!
+      # raise '例外発生：処理はキャンセルされたよ'
+      b2 = Book.new({isbn: '978-4-7741-4223-2',
+                    title: 'Tomcatポケットリファレンス',
+                    price: 2500, publish: '技術評論社', published: '2011-01-01'})
+      b2.save!
+    end
+    render text: 'トランザクション成功！'
+   rescue => e
+      render text: e.message
+  end
 end
