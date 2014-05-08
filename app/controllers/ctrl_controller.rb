@@ -1,5 +1,13 @@
 class CtrlController < ApplicationController
+  # before_action :start_logger
+  before_action :auth, only: :index
+  after_action :endlogger
   require 'kconv'
+
+  def index
+    sleep 3
+    render text: 'indexアクションが実行されました'
+  end
 
   def para
     render text: 'idパラメータ: ' + params[:id]
@@ -56,5 +64,42 @@ class CtrlController < ApplicationController
   def get_json
     @books = Book.all
     render json: @books
+  end
+
+  def cookie
+    @email = cookies[:email]
+  end
+
+  def cookie_rec
+    cookies[:email] = { value: params[:email],
+      expires: 3.months.from_now, http_only: true }
+    render text: 'クッキーを保存しました'
+  end
+
+  def session_show
+    @email = session[:email]
+  end
+
+  def session_rec
+    session[:email] = params[:email]
+    render text: 'セッションを保存しました。'
+  end
+
+  private
+  def start_logger
+    logger.debug('[Start] ' + Time.now.to_s)
+  end
+
+  def endlogger
+    logger.debug('[Finish] ' + Time.now.to_s)
+  end
+
+  def auth
+    name = 'admin'
+    passwd = '5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8'
+    authenticate_or_request_with_http_basic('Railsbook') do |n, p|
+      n == name &&
+        Digest::SHA1.hexdigest(p) == passwd
+    end
   end
 end
