@@ -24,6 +24,8 @@ class BooksController < ApplicationController
   # POST /books
   # POST /books.json
   def create
+    #render text: params[:book].inspect
+    #return #p.302 後続の処理を中断
     @book = Book.new(book_params)
 
     respond_to do |format|
