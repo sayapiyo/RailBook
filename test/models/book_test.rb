@@ -1,6 +1,15 @@
 require 'test_helper'
 
 class BookTest < ActiveSupport::TestCase
+
+  def setup
+    @b = books(:jslib)
+  end
+
+  def teardown
+    @b = nil
+  end
+
   # test "the truth" do
   #   assert true
   # end
@@ -34,8 +43,7 @@ class BookTest < ActiveSupport::TestCase
   test "where method test" do
     result = Book.find_by(title: 'JavaScriptライブラリ実践活用')
     assert_instance_of Book, result , 'result is not instance of Book'
-    assert_equal books(:jslib).isbn, result.isbn, 'isbn column is wrong.'
-    assert_equal Date.new(2013, 03, 19), result.published,
-      'published column is wrong.'
+    assert_equal @b.isbn, result.isbn, 'isbn column is wrong.'
+    assert_equal @b.published, result.published, 'published column is wrong.'
   end
 end
