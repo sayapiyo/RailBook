@@ -11,4 +11,23 @@ class HelloControllerTest < ActionController::TestCase
     assert_response :success, 'list action falid.'
     assert_template 'hello/list'
   end
+
+  test "routing check" do
+    assert_generates('hello/list', { controller: 'hello', action: 'list' })
+  end
+
+  test "select check" do
+    get :list
+    assert_select 'title'
+    assert_select 'title', true
+    assert_select 'font', false
+    assert_select 'title', 'Railbook'
+    assert_select 'title', /[A-Za-z0-9]+/
+    # assert_select 'script[data_turbolinks-track=?]', /.+/
+    # assert_select 'table tr[style]', 10
+    # assert_select 'table' do
+    #   assert_select 'tr[style]', 1..10
+    # end
+    assert_select 'title', { count: 1, text: 'Railbook' }
+  end
 end
