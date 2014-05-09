@@ -1,4 +1,7 @@
-Rails.application.routes.draw do
+require 'TimeConstraint'
+
+#Rails.application.routes.draw do
+Railbook::Application.routes.draw do
   resources :members
 
   resources :fan_comments
@@ -9,7 +12,11 @@ Rails.application.routes.draw do
 
   resources :users
 
-  resources :books
+  #resources :books, constraints: { id: /[0-9]{1,2}/ } #2桁の数字のidのみを許容する
+  resources :books, constraints: TimeConstraint.new
+  #resources :books, format: false
+
+  resource :config
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -65,6 +72,12 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  #
+  namespace :admin do
+    resources :books
+  end
 
   match ':controller(/:action(/:id))', via: [ :get, :post, :patch ]
+
+  root to: 'books#index'
 end
